@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import Header from './components/Headers/Header'
 import './App.css'
 
 function App() {
@@ -9,7 +7,7 @@ function App() {
 
   return (
     <>
-      <h1>This is CV Maker</h1>
+      <Header />
     </>
   )
 }
