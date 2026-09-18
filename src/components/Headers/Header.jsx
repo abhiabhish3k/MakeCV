@@ -1,6 +1,7 @@
 import react from 'react'
+import DownloadButton from './Downloadbutton.jsx';
 import {
-    FileText, ZoomIn, ZoomOut, RotateCcw, Download, Pencil, Code2
+    FileText, ZoomIn, ZoomOut, RotateCcw, Pencil, Code2
 } from 'lucide-react'
 
 function ZoomControls({ zoom, onZoomIn, onZoomOut, onZoomReset}) {
@@ -37,7 +38,7 @@ function ZoomControls({ zoom, onZoomIn, onZoomOut, onZoomReset}) {
     );
 }
 
-function Header({ zoom, onZoomIn, onZoomOut, onRotate, onDownload, onZoomReset }) {
+function Header({ zoom, onZoomIn, onZoomOut, onRotate, onZoomReset }) {
 
     return (
         <>  
@@ -86,13 +87,8 @@ function Header({ zoom, onZoomIn, onZoomOut, onRotate, onDownload, onZoomReset }
                 </span>
                 </a>
         
-                <button
-                onClick={onDownload}
-                className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white px-3.5 py-1.5 rounded-lg text-sm font-medium transition shadow-sm active:scale-95"
-                >
-                <Download size={15} />
-                <span className="hidden sm:inline">Download CV</span>
-                </button>
+                <DownloadButton />
+                
             </div>
         </header>
         </>
