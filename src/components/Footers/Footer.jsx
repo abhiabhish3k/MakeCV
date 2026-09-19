@@ -1,5 +1,5 @@
 import react from "react";
-import {Rocket, Code2, Mail, MessageSquare, Bug, Star, FileText, Terminal} from lucide-react
+import {Rocket, Code2, Mail, MessageSquare, Bug, Star, FileText, Terminal} from 'lucide-react'
 
 export default function Footer() {
 return (
@@ -156,7 +156,7 @@ function Bottombar() {
                 <div className="border-t border-slate-800 bg-slate-950/60 py-4 px-6 sm:px-12">
             <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
                 <p className="text-center sm:text-left">
-                © 2025 MakeCV. Made with care by <span className="text-slate-200 font-medium">Dipan &amp; Abhishek</span>. All rights reserved.
+                © 2026 MakeCV. Made with care by <span className="text-slate-200 font-medium">Dipan &amp; Abhishek</span>. All rights reserved.
                 </p>
                 <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-full">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
