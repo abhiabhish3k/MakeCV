@@ -96,11 +96,11 @@ function ModernTemplate({
         {/*  MAIN  */}
         <main className="min-w-0 px-[7%] py-[6%]">
           {/* -------- PROFILE -------- */}
-          {cvData?.summary && (
+          {cvData?.professionalSummary && (
             <section className="mb-[7%]">
               <MainSectionHeading>Profile</MainSectionHeading>
               <p className="whitespace-pre-line text-[clamp(0.6rem,1.25vw,0.75rem)] leading-[1.7] text-slate-600">
-                {cvData?.summary}
+                {cvData?.professionalSummary}
               </p>
             </section>
           )}

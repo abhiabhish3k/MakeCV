@@ -3,8 +3,6 @@ import ModernTemplate from "./Templates/modernTemplate";
 import MinimalTemplate from "./Templates/minimalTemplate";
 import ClassicTemplate from "./Templates/classicTemplate";
 
-// Same lookup-object pattern as the DownloadMenu/TemplateSelector list —
-// data describing "what exists", instead of a chain of if/else statements.
 const TEMPLATES = {
   modernTemplate: ModernTemplate,
   minimalTemplate: MinimalTemplate,
@@ -12,14 +10,14 @@ const TEMPLATES = {
 };
 
 function Preview({
-  selectedTemplate,
-  zoom,
-  cvData,
-  experienceList,
-  educationList,
-  projectsList,
-  skills,
-  languages,
+  selectedTemplate = "modernTemplate",
+  zoom = 100,
+  cvData = {},
+  experienceList = [],
+  educationList = [],
+  projectsList = [],
+  skills = [],
+  languages = [],
 }) {
   // Look up which template component to render. Falls back to Modern if
   // selectedTemplate is missing or doesn't match a known key.

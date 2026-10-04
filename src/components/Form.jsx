@@ -1,18 +1,21 @@
 import { useState } from "react";
 
-function Form() {
-
-  const [cvData, setCvData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    jobTitle: "",
-    location: "",
-    portfolioURL: "",
-    LinkedinURL: "",
-    professionalSummary: "",
-  });
-
+// Form is controlled from App: shared CV state is lifted so Preview can
+// read the same values. Only input-box drafts (skill/language chips) stay local.
+function Form({
+  cvData,
+  setCvData,
+  experienceList,
+  setExperienceList,
+  educationList,
+  setEducationList,
+  projectsList,
+  setProjectsList,
+  skills,
+  setSkills,
+  languages,
+  setLanguages,
+}) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCvData((prev) => ({ ...prev, [name]: value }));
@@ -27,8 +30,6 @@ function Form() {
     isCurrent: false,
     description: "",
   });
-
-  const [experienceList, setExperienceList] = useState([makeEmptyExperience()]);
 
   // Updates ONE field, on ONE specific experience card, identified by its id.
   const handleExperienceChange = (id, field, value) => {
@@ -47,7 +48,6 @@ function Form() {
     setExperienceList((prev) => prev.filter((exp) => exp.id !== id));
   };
 
-
   const makeEmptyEducation = () => ({
     id: crypto.randomUUID(),
     degree: "",
@@ -57,8 +57,6 @@ function Form() {
     isCurrent: false,
     description: "",
   });
-
-  const [educationList, setEducationList] = useState([makeEmptyEducation()]);
 
   const handleEducationChange = (id, field, value) => {
     setEducationList((prev) =>
@@ -74,8 +72,7 @@ function Form() {
     setEducationList((prev) => prev.filter((edu) => edu.id !== id));
   };
 
-
-const makeEmptyProjects = () => ({
+  const makeEmptyProjects = () => ({
     id: crypto.randomUUID(),
     projectName: "",
     projectURL: "",
@@ -84,8 +81,6 @@ const makeEmptyProjects = () => ({
     isCurrent: false,
     description: "",
   });
-
-  const [projectsList, setProjectsList] = useState([makeEmptyProjects()]);
 
   const handleProjectsChange = (id, field, value) => {
     setProjectsList((prev) =>
@@ -101,11 +96,8 @@ const makeEmptyProjects = () => ({
     setProjectsList((prev) => prev.filter((proj) => proj.id !== id));
   };
 
-
-  {/* SKILLS (repeatable) */}
-  const [skills, setSkills] = useState([]);
   const [skillInput, setSkillInput] = useState("");
- 
+
   const addSkill = () => {
     const trimmed = skillInput.trim();
     if (!trimmed) return; // ignore empty/whitespace-only entries
@@ -116,7 +108,7 @@ const makeEmptyProjects = () => ({
     setSkills((prev) => [...prev, trimmed]);
     setSkillInput("");
   };
- 
+
   // Enter confirms the chip; comma also works as a quick alternative.
   const handleSkillKeyDown = (e) => {
     if (e.key === "Enter" || e.key === ",") {
@@ -124,16 +116,13 @@ const makeEmptyProjects = () => ({
       addSkill();
     }
   };
- 
+
   const removeSkill = (skillToRemove) => {
     setSkills((prev) => prev.filter((skill) => skill !== skillToRemove));
   };
 
-
-  {/* Languages (repeatable) */}
-  const [languages, setLanguages] = useState([]);
   const [languageInput, setLanguageInput] = useState("");
- 
+
   const addLanguage = () => {
     const trimmed = languageInput.trim();
     if (!trimmed) return;
@@ -144,14 +133,14 @@ const makeEmptyProjects = () => ({
     setLanguages((prev) => [...prev, trimmed]);
     setLanguageInput("");
   };
- 
+
   const handleLanguageKeyDown = (e) => {
     if (e.key === "Enter" || e.key === ",") {
       e.preventDefault();
       addLanguage();
     }
   };
- 
+
   const removeLanguage = (languageToRemove) => {
     setLanguages((prev) => prev.filter((lang) => lang !== languageToRemove));
   };

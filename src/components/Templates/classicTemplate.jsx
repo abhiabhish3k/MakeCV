@@ -14,7 +14,7 @@ function SectionHeading({ children }) {
 }
 
 function ClassicTemplate({
-  cvData,
+  cvData = {},
   experienceList = [],
   educationList = [],
   projectsList = [],

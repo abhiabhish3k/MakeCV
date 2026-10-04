@@ -38,7 +38,7 @@ function Entry({ title, meta, range, description }) {
 }
 
 function MinimalTemplate({
-  cvData,
+  cvData = {},
   experienceList = [],
   educationList = [],
   projectsList = [],
@@ -57,7 +57,6 @@ function MinimalTemplate({
     cvData.location,
     cvData.portfolioURL,
     cvData.LinkedinURL,
-    cvData.professionalSummary,
   ].filter(Boolean);
 
   return (
